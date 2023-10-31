@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<script src="js/jquery-2.1.3.min.js"></script>
+<link rel="stylesheet" href="css/js_kadai3.css">
+
+<title>JOJOじゃんけん</title>
+	<style>
+		#state{
+			font-weight: bold;
+			margin: 10px 0;
+		}
+</style>
+
+
+</head>
+<body>
+<section>
+    <header>
+			<div class="header_bg">
+			<header style="background-image:url(img/jojo_header3.jpg)"></header>
+
+        <p class="p_head">じゃんけん</p>
+			</div>
+		</header>
+	</section>
+
+		<!-- BGMを流す -->
+	<section>
+		<audio src="jojo_SE/jojoshokeiloop.wav" id="audio" pause="pause" loop="loop"></audio>
+		<div id="btn-gold">BGMを再生／停止</div>
+	</section>
+
+<!-- クイズへ -->
+<section>
+		<a href="quiz.html" class="btn-silver">ジョジョクイズへ</a>
+</section>
+
+		<!-- じゃんけん -->
+		<section>
+			<div>↓対戦相手↓<span id="cpu"></span></div>
+			<div id="state" >最初はグー!じゃんけん・・・</div>
+		
+			<div>↓あなた↓<span id="player"></span></div>
+		
+			<button id="gu"><img src="/img/gu.jpg" height ="80" width="80" /></button>
+			<button id="cho"><img src="/img/cho.jpg" height ="80" width="80" /></button>
+			<button id="pa"><img src="/img/pa.jpg" height ="80" width="80" /></button>	
+			
+			<p id="result">勝負！</p>
+		</section>
+
+			<!-- コメント追加したい -->
+<section>
+	<section>
+		<div id="btn_comm">
+		<a href="#btn_comm" class="btn-silver">コメントはこちら
+		</a>
+	</div>
+</section>
+	
+	<form action="https://docs.google.com/forms/d/e/1FAIpQLSfsmjw3Ht_kXmOpIbKPyA34-p6Za4__QnpErBAyUtnC9-cJpQ/formResponse" target="hidden_iframe" method="post" onsubmit="return test(this.wcheck.value)">
+		<p class="p_com1"><input name="entry.1807522711" placeholder="名前" value="名無し" required></p>
+		<p class="p_com2"><input name="entry.545356077" placeholder="メールアドレス" type="email"></p>
+		<p class="p_com3"><textarea name="entry.1480966850" placeholder="コメント" rows="5" cols="40" maxlength="400" id="wcheck" required></textarea></p>
+		<input type="submit" id="submitbutton" value="送信">
+</form>
+<iframe onload='if(submitted){window.location="";}' id=hidden_iframe name=hidden_iframe style=display:none></iframe>
+
+<script type="text/javascript">
+var NGComments = ["死ね","バカ",".exe"]; // 簡易的なNGワードの設定
+var regex = new RegExp(NGComments.join("|"));
+function test(wcheck) {
+	if (wcheck.match(regex) != null) {
+		alert("ERROR: コメントにNGワードが含まれています");
+		return false;
+	}
+	document.getElementById("submitbutton").disabled = true;
+	textareas = document.getElementsByTagName('textarea');
+	for(var i=0 ;i < textareas.length ;i ++ ){
+		textareas[i].value = textareas[i].value.replace( /</g ,'&lt;' );
+	}
+	inputs = document.getElementsByTagName('input');
+	for(var i=0 ;i < inputs.length ;i ++ ){
+		inputs[i].value = inputs[i].value.replace( /</g ,'&lt;' );
+	}
+	return submitted=!0;
+}
+</script>
+
+		<!-- スプレッドシートの設定 -->
+		<script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+<div id="comments"></div>
+<script>
+d3.csv("https://docs.google.com/spreadsheets/d/1gtatC6jbjW015ecJHP43_q2YSkYZROjdhBf4atlo3Ag/export?format=csv&range=A3:D", function(error, data){
+	var text = "";
+	for(var i=0; i<data.length; i++){
+		text += i+1 + " 名前: <a href=\"mailto:" + data[i].Mail + "\">" + data[i].Name + "</a> " + data[i].Timestamp + "<pre>" + data[i].Comments + "</pre>";
+	}
+	d3.select("#comments").html(text);
+});
+</script>
+
+</section>
+			<!-- BGMはここ -->
+			<audio src="jojo_SE/arideverychi.wav" id="jojo_arideverychi"></audio>
+			<audio src="jojo_SE/hinjyaku.wav" id="jojo_hinjyaku"></audio>
+			<audio src="jojo_SE/nigerundayoo.wav" id="jojo_nigeru"></audio>
+			
+    <footer></footer>
+
+			<!-- jQueryのjsコードを先に読み込む！ -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+	<!-- jsを紐づける。下に書かないとUXに悪い -->
+	<script src="js/kadai3.js"></script>
+
+</body>
+
+</html>

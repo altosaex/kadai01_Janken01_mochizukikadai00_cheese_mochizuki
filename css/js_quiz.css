@@ -1,0 +1,315 @@
+@charset "utf-8";
+@media screen and(min-width:481px) {
+}
+html{
+	font-size: 62.5%;
+}
+body{
+	color: white;
+	font-size: 1.6rem;
+	font-family: Arial, "YuGothic Medium","Yu Gothic Medium","游ゴシック Medium","游ゴシック体 Medium",YuGothic,"Yu Gothic","游ゴシック","游ゴシック体","ヒラギノ角ゴ ProN W3","Hiragino Kaku Gothic ProN","メイリオ",Meiryo,sans-serif;
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+	-webkit-font-smoothing: antialiased;
+	font-feature-settings : "palt";
+	-moz-osx-font-smoothing: grayscale;
+    margin:0;
+    padding:0;
+    text-align:left;
+    font-size: 32px;
+		background:rgba(76, 13, 124, 0.709);
+		background-image: url(./nc92359.png);
+		width: 100%;
+		text-align: center;
+		border-bottom: 2px dashed #fafafa; /* 破線 */
+}
+
+header{
+	background: url(../img/jojo_header4.jpg) center / cover;
+
+}
+.header_bg {
+	clear:both;
+	position: relative;
+	/* padding-top: 60px; */
+	text-align: center;
+	width: 100%;
+	height: 200px;
+}
+
+.header_bg p {
+  color: white;/*文字は白に*/
+	font-size: 110px;
+	font-weight: bold;
+  }
+
+p{
+    font-size:200%;
+    text-align: center;
+    height:200px;
+		margin: 0 auto;
+}
+
+button {
+	box-shadow: 0 4px 0 #8027b3;
+}
+button:hover{
+    background: #681698;
+    color:#fff;
+		transform: translateY(2px);
+		box-shadow: 5px 5px 5px 5px #681698ed;
+}
+
+#state {
+	color: #FF3399;
+}
+
+#result {
+	color: yellow;
+	height: 100%;
+	padding: 20px;
+	border-bottom: 2px dashed #fafafa; /* 破線 */
+}
+a{
+	text-decoration: none;
+	color: red;
+}
+
+.btn-silver-top {
+	margin: 2px 0px;
+}
+
+.btn-silver {
+	font-size: 20px;
+	padding: 3px 3px 3px 3px;
+
+}
+#btn-gold {
+	font-size: 20px;
+}
+
+a.btn-silver {
+  color: #000;
+  border-top: 4px solid #d8dcdc;
+  border-right: 4px solid #666;
+  border-bottom: 4px solid #333;
+  border-left: 4px solid #868888;
+  border-radius: 0;
+  background-image: -webkit-linear-gradient(135deg, #333 0%, #868888 20%, #d8dcdc 34%, white 53%, #666 100%);
+  background-image: linear-gradient(-45deg, #333 0%, #868888 20%, #d8dcdc 34%, white 53%, #666 100%);
+  text-shadow: 0 0 5px #fff, 0 0 5px #fff, 0 0 5px #fff, 0 0 5px #fff, 0 0 5px #fff;
+}
+
+a.btn-silver:hover {
+  text-shadow: 0 0 7px #fff, 0 0 7px #fff, 0 0 7px #fff, 0 0 7px #fff, 0 0 7px #fff, 0 0 7px #fff, 0 0 7px #fff, 0 0 7px #fff;
+}
+
+#btn-gold {
+  color: #b1921b;
+  border-right: 4px solid #cea82c;
+  border-bottom: 10px solid #987c1e;
+  border-left: 4px solid #ffed8b;
+  border-radius: 0;
+  background: -webkit-gradient(linear, right top, left top, from(#ffd75b), color-stop(30%, #fff5a0), color-stop(40%, #fffabe), color-stop(50%, #ffffdb), color-stop(70%, #fff5a0), to(#fdd456));
+  background: -webkit-linear-gradient(right, #ffd75b 0%, #fff5a0 30%, #fffabe 40%, #ffffdb 50%, #fff5a0 70%, #fdd456 100%);
+  background: linear-gradient(-90deg, #ffd75b 0%, #fff5a0 30%, #fffabe 40%, #ffffdb 50%, #fff5a0 70%, #fdd456 100%);
+  text-shadow: -1px -1px 1px #ffffd9;
+}
+
+#btn-gold:hover {
+  margin-top: 3px;
+  color: #b1921b;
+  border-right: 4px solid #cea82c;
+  border-bottom: 7px solid #987c1e;
+  border-left: 4px solid #ffed8b;
+	cursor : pointer;
+}
+
+/* クイズを作る */
+.quiz_box {
+	text-align: center;
+  position: relative;
+
+	width: 100%;
+  /* background-color: #fdde98; */
+  margin: 0 auto;
+  margin-top: 6px;
+	border-bottom: 2px dashed #fafafa; /* 破線 */
+}
+ 
+.quiz_box .answer_correct {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background-color: #e1e1e1;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.5s;
+}
+ 
+.quiz_box .answer_correct .maru {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: solid 10px purple;
+}
+ 
+.quiz_box .answer_incorrect {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background-color: #e1e1e1;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.5s;
+}
+ 
+.quiz_box .answer_incorrect .batu {
+  position: relative;
+  width: 100px;
+  height: 10px;
+  background-color: purple;
+}
+ 
+.quiz_box .answer_incorrect .batu::before {
+  position: absolute;
+  width: 100px;
+  height: 10px;
+  background-color: purple;
+  content: "";
+}
+ 
+.quiz_box .answer_result {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  background-color: #261b02;
+  width: 100%;
+  height: 100%;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.5s;
+}
+ 
+.quiz_box .answer_result .answer_result_title {
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-bottom: solid 1px #a0a0a0;
+  font-size: 24px;
+}
+ 
+.quiz_box .answer_result .answer_result_text {
+  padding: 50px;
+  font-size: 38px;
+  font-weight: bold;
+}
+ 
+.quiz_box .active_answer {
+  visibility: visible;
+  opacity: 0.8;
+}
+ 
+.quiz_box .active_result {
+  visibility: visible;
+  opacity: 1;
+}
+ 
+.quiz_box .question_number {
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-bottom: solid 1px #a0a0a0;
+  font-weight: bold;
+}
+ 
+.quiz_box .question {
+  text-align: center;
+  font-weight: bold;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+ 
+.quiz_box .answer_box {
+display: flex;
+flex-wrap: wrap;
+justify-content: space-between;
+  margin: 0 auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding-bottom: 40px;
+  width: 400px;
+}
+ 
+.quiz_box .answer_box .answer {
+  border: solid 1px #000000;
+  width: 40%;
+  margin-top: 20px;
+  margin-right: 10px;
+  margin-left: 10px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+/* コメント追加したい */
+
+a.btn--yellow {
+  color: white;
+  background-color: #9a1c96;
+  border-bottom: 5px solid #e6dce5;
+}
+
+a.btn--yellow:hover {
+  margin-top: 3px;
+  color: #f8f7f7;
+  background: #fff20a;
+  border-bottom: 2px solid #ccc100;
+}
+
+#btn_comm {
+width: 100%;
+text-align: left;
+margin-left: 30px;
+margin-top: 10px;
+margin-bottom: 10px;
+}
+
+.p_com1 {
+height: 30px;
+text-align: left;
+}
+.p_com2 {
+	height: 80px;
+	text-align: left;
+}
+
+.p_com3 {
+	height: 100px;
+}
+
+form {
+	height: 250px;
+	width: 300px;
+	text-align: left;
+	margin-left: 30px;
+	background-color: #fff;
+	padding: 30px;
+	padding-top: 0px;
+}
+
+#comments {
+	text-align: left;
+	margin-top: 30px;
+	margin-left: 30px;
+	font-size: 20px;
+}
